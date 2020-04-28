@@ -1,8 +1,8 @@
 import React from "react";
 // import Logo from "./Logo";
-import Logo from "./Logo.class";
-import Description from "./Description.class";
-import AppLink from "./AppLink.class";
+import Logo from "./Logo";
+import Description from "./Description";
+import AppLink from "./AppLink";
 // import PropTypes from "prop-types";
 
 const Header = ({
@@ -16,13 +16,7 @@ const Header = ({
   return (
     <header className="App-header">
       <Logo src={logo} alt={logoAlt} />
-      <Logo src={logo} alt={logoAlt} />
-      <Logo src={logo} alt={logoAlt} />
-      <Logo src={logo} alt={logoAlt} />
       <Description greetings={descGreetings}>{descContent}</Description>
-      <Description greetings={descGreetings}>{descContent}</Description>
-      <Description greetings={descGreetings}>{descContent}</Description>
-      <AppLink href={appHref}>{textLink}</AppLink>
       <AppLink href={appHref}>{textLink}</AppLink>
     </header>
   );
