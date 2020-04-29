@@ -4,6 +4,11 @@ import Header from "./components/Header";
 import User from "./components/User";
 import logo from "./logo.svg";
 
+// import { listItems, MoviesList } from "./components/ListDemo";
+import ListDemo from "./components/ListDemo";
+
+import DynamicMoviesList from "./components/DynamicMoviesList";
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -37,9 +42,29 @@ class App extends Component {
   }
 
   clickHandler() {
-    this.setState({
-      clickCount: this.state.clickCount + 1,
-    });
+    const { clickCount, userA, userB } = this.state;
+
+    const newCount = clickCount + 1;
+
+    newCount === 5
+      ? this.setState({ backColor: "lightgray", clickCount: newCount })
+      : newCount === 10
+      ? this.setState({
+          userA: {
+            ...userA,
+            avatarUrl:
+              "https://s3.amazonaws.com/owler-image/logo/ironhack_owler_20180828_221413_original.png",
+          },
+          userB: {
+            ...userB,
+            avatarUrl:
+              "https://www.refreshmiami.com/wp-content/uploads/2018/07/55085_logo-ironhack.png",
+          },
+          clickCount: newCount,
+        })
+      : this.setState({
+          clickCount: newCount,
+        });
 
     console.log(this.state.clickCount);
   }
@@ -48,6 +73,10 @@ class App extends Component {
     console.log("render called!");
     return (
       <div className="App">
+        <DynamicMoviesList />
+        {/* <MoviesList /> */}
+        <hr />
+        {ListDemo.MoviesList}
         <div
           style={{
             backgroundColor: "#FFF",
