@@ -16,12 +16,12 @@ class DynamicMoviesList extends Component {
     this.deleteHandler = this.deleteHandler.bind(this);
   }
 
-  deleteHandler() {
-    console.log("inside delete");
+  deleteHandler(idx) {
+    console.log("inside delete", idx);
     // copy array from state
     const newMovies = [...this.state.movies];
     // shift
-    newMovies.shift();
+    newMovies.splice(idx, 1);
     // setState
     this.setState({
       movies: newMovies,
@@ -37,7 +37,7 @@ class DynamicMoviesList extends Component {
         {this.state.movies.map((oneMovie, index) => (
           <ImprovedCard
             key={index}
-            deleteHandler={this.deleteHandler}
+            deleteHandler={() => this.deleteHandler(index)}
             {...oneMovie}
           />
         ))}
