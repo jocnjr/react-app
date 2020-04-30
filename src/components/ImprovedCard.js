@@ -1,11 +1,11 @@
 import React from "react";
 
-const ImprovedCard = (props) => {
+const ImprovedCard = ({ title, director, deleteHandler }) => {
   return (
     <div className="movies-list-item">
-      <h2>{props.title}</h2>
-      <p>Director: {props.director}</p>
-      <button onClick={props.deleteHandler}>delete movie</button>
+      <h2>{title}</h2>
+      <p>Director: {director}</p>
+      <button onClick={deleteHandler}>delete movie</button>
     </div>
   );
 };
